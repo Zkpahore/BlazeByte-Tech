@@ -1,8 +1,8 @@
 import React from 'react';
-import Vision from './service/Vision';
-import WebDesignServices from './service/WebDesignServices';
-import ServicesWeOffer from './service/SWF';
-import Brand from './service/Brand'
+import Vision from './Vision';
+import WebDesignServices from './WebDesignServices';
+import ServicesWeOffer from './SWF';
+import Brand from './Brand'
 const ServicesOverview = () => {
 
   return (

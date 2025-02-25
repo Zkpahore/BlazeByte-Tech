@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from './Comps/NavBar';
@@ -11,7 +10,7 @@ const Loader = ({ countdown }) => (
       <div className="central-dot"></div>
     </div>
     <h3 className='font-serif pt-8'>Please Wait</h3>
-    <div className="countdown-text">{countdown}</div>
+    {/* <div className="countdown-text">{countdown}</div> */}
   </div>
 );
 
@@ -24,21 +23,21 @@ function App() {
       const countdownTimer = setTimeout(() => setCountdown(countdown - 1), 1000);
       return () => clearTimeout(countdownTimer);
     } else {
-      setTimeout(() => setLoading(false), 1000); // Wait 1s after countdown reaches 0
+      setTimeout(() => setLoading(false), 1000);
     }
   }, [countdown]);
 
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <Loader countdown={countdown} />
-      ) : (
+      ) : ( */}
         <>
           <NavBar />
           <Outlet />
           <Footer />
         </>
-      )}
+      {/* )} */}
     </>
   );
 }

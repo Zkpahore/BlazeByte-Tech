@@ -10,95 +10,46 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-800 text-white py-4 px-6 shadow-lg fixed w-full z-50">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold">
-          <Link to="/">
-            <img
-              src="blazebytetech.png"
-              alt="Blazebyte tech"
-              className="w-64 top-2 absolute h-auto"
-            />
-          </Link>
-        </h1>
+    <div className="relative">
+      {/* Fixed Menu Icon */}
+      <button
+        onClick={toggleMenu}
+        className="fixed top-4 left-4 z-50 p-3 rounded-full bg-blue-800 text-white shadow-lg hover:bg-blue-700 transition-all duration-300"
+      >
+        {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+      </button>
 
-        {/* Hamburger icon for mobile */}
-        <button
-          onClick={toggleMenu}
-          className="text-3xl md:hidden focus:outline-none transition-transform duration-300 transform hover:scale-110"
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
-
-        {/* Desktop menu */}
-        <ul className="hidden md:flex gap-8 items-center text-lg font-medium">
-          <li>
-            <Link to="/about" className="hover:text-yellow-400 transition duration-200">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/services" className="hover:text-yellow-400 transition duration-200">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link to="/portfolio" className="hover:text-yellow-400 transition duration-200">
-              Portfolio
-            </Link>
-          </li>
-          <li>
-            <Link to="/blog" className="hover:text-yellow-400 transition duration-200">
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="hover:text-yellow-400 transition duration-200">
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link to="/faq" className="hover:text-yellow-400 transition duration-200">
-              Faq
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* Mobile menu with rounded pop-up transition */}
+      {/* Sidebar Menu */}
       <div
-        className={`md:hidden fixed inset-0 bg-blue-900 bg-opacity-90 backdrop-blur-md transform transition-all duration-700 ease-in-out ${
-          isOpen
-            ? 'translate-y-0 scale-100 opacity-100 rounded-none'
-            : '-translate-y-full scale-75 opacity-0 rounded-full'
+        className={`fixed top-0 left-0 h-screen w-64 bg-blue-800 shadow-xl transform transition-transform duration-300 z-40 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <button
-          onClick={toggleMenu}
-          className="absolute top-6 right-6 text-3xl text-white focus:outline-none transition-transform duration-300 transform hover:scale-110"
-          aria-label="Close Menu"
-        >
-          <FaTimes />
-        </button>
-
-        <ul className="flex flex-col items-center justify-center min-h-screen gap-6 text-2xl font-semibold tracking-wide text-white">
-          {['About', 'Services', 'Portfolio', 'Blog', 'Contact', 'Faq'].map((item, index) => (
-            <li key={index} className="w-full text-center">
+        <div className="p-6 mt-16">
+          {/* Navigation Links */}
+          <nav className="space-y-4">
+            {['Home', 'About', 'Services', 'Portfolio', 'Blog', 'Contact', 'FAQ'].map((item, index) => (
               <Link
+                key={index}
                 to={`/${item.toLowerCase()}`}
                 onClick={toggleMenu}
-                className="block w-full py-2 hover:text-yellow-400 transition duration-200"
+                className="block py-3 px-4 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 text-lg font-medium"
               >
                 {item}
               </Link>
-              {index < 5 && <hr className="w-1/2 mx-auto border-gray-500" />}
-            </li>
-          ))}
-        </ul>
+            ))}
+          </nav>
+        </div>
       </div>
-    </nav>
+
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-30 backdrop-blur-sm"
+          onClick={toggleMenu}
+        />
+      )}
+    </div>
   );
 };
 
