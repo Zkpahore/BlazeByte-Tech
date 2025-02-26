@@ -93,7 +93,7 @@ const WebDesignServices = () => {
   const images = ['/Movies.png', '/solar.png'];
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-white to-gray-50 py-20 px-6 md:px-12 lg:px-24">
+    <div className="py-20 px-6 md:px-12 lg:px-24 border-b-2">
       <div className="container mx-auto space-y-24">
         {/* Section 1 */}
         <div className="flex flex-col-reverse md:flex-row items-center gap-12 lg:gap-16">

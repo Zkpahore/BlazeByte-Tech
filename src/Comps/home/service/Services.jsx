@@ -3,6 +3,7 @@ import Vision from './Vision';
 import WebDesignServices from './WebDesignServices';
 import ServicesWeOffer from './SWF';
 import Brand from './Brand'
+import Sample from './Sample';
 const ServicesOverview = () => {
 
   return (
@@ -11,6 +12,7 @@ const ServicesOverview = () => {
    <WebDesignServices />
    <ServicesWeOffer />
    <Brand />
+   <Sample />
    </>
   );
 };

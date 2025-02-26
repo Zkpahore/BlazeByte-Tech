@@ -3,7 +3,7 @@ import { FaLaptopCode, FaRocket, FaSearch, FaLock } from 'react-icons/fa';
 
 const Vision = () => {
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-gray-100 py-16 px-6 md:px-12 lg:px-24 xl:px-32">
+    <div className="py-16 px-6 md:px-12 lg:px-24 xl:px-32">
       <div className="container mx-auto">
         {/* Heading Section */}
         <div className="text-center mb-16 lg:mb-24">

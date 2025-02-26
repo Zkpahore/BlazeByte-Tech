@@ -73,7 +73,7 @@ const ServiceCard = ({ title, description, hiddenContent, icon }) => {
 
 const ServicesWeOffer = () => {
   return (
-    <div className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-purple-50">
+    <div className="relative py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative inline-block">
@@ -95,7 +95,7 @@ const ServicesWeOffer = () => {
         </div>
 
         {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-72 bg-gradient-to-r from-purple-100 to-blue-100 opacity-20 -z-10" />
+        <div className="absolute top-0 left-0 w-full h-72  opacity-20 -z-10" />
         <div className="absolute bottom-0 right-0 w-48 h-48 bg-purple-200 rounded-full opacity-10 blur-3xl -z-10" />
       </div>
     </div>

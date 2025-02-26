@@ -1,89 +1,120 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const WebDevComponent = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const containerRef = useRef(null);
+const FeatureBridge = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const stats = [
+    { value: '98%', label: 'Client Satisfaction' },
+    { value: '1.2x', label: 'SEO Performance Boost' },
+    { value: '24h', label: 'Support Response' },
+    { value: '500+', label: 'WordPress Sites' }
+  ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress((scrolled / totalHeight) * 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % stats.length);
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div ref={containerRef} className="relative min-h-screen overflow-hidden isolate bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+    <div className="relative py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden isolate border-t-2">
       
-      {/* Animated Background Elements */}
+      {/* Animated Background */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute w-64 h-64 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl top-20 -left-20 animate-float" />
-        <div className="absolute w-72 h-72 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl bottom-20 -right-20 animate-float-delayed" />
+        <div className="absolute w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl -top-20 left-1/4 animate-float" />
+        <div className="absolute w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl -bottom-20 right-1/4 animate-float-delayed" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 py-24 md:py-36 lg:py-32">
+      <div className="relative z-10 container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          {/* Left Column */}
-          <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-4 group">
-              <div className="h-1 w-12 bg-purple-400 transition-all duration-500 group-hover:w-16" />
-              <span className="text-sm uppercase tracking-widest text-purple-400 font-medium">
-                Digital Solutions
-              </span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Build Powerful
-              </span>
-              <span className="text-white block mt-4">Web Experiences</span>
-            </h1>
-
-            <div className="flex justify-center lg:justify-start space-x-4">
-              <button className="px-8 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-                Start Your Project
-              </button>
-              <button className="px-8 py-3 border-2 border-white/20 hover:border-purple-400 text-white rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10">
-                Explore Services
-              </button>
+          {/* Left Column - Animated Stats */}
+          <div className="space-y-8 text-center lg:text-right">
+            <div className="inline-grid grid-cols-2 gap-8 w-full max-w-md mx-auto lg:mx-0">
+              {stats.map((stat, index) => (
+                <div 
+                  key={stat.label}
+                  className={`p-6 rounded-2xl backdrop-blur-lg transition-all duration-500 ${
+                    activeIndex === index 
+                      ? 'bg-cyan-500/20 border-2 border-cyan-400/50 scale-105'
+                      : 'bg-white/5 border border-white/10'
+                  }`}
+                >
+                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-gray-300 mt-2">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="space-y-6 backdrop-blur-xl bg-black/30 p-8 rounded-3xl border border-white/10 hover:border-purple-400/30 transition-all duration-500">
-            <div className="flex items-center gap-4">
-              <div className="p-4 bg-purple-500/10 rounded-2xl">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-blue-500 rounded-lg" />
+          {/* Right Column - Service Features */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-4 group">
+                <div className="h-1 w-12 bg-purple-400 transition-all duration-500 group-hover:w-16" />
+                <span className="text-sm uppercase tracking-widest text-purple-400 font-medium">
+                  Core Services
+                </span>
               </div>
-              <h3 className="text-xl font-semibold text-white">Our Expertise</h3>
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Full-Cycle Web Solutions
+              </h2>
             </div>
 
-            <p className="text-gray-300 leading-relaxed">
-              Professional web development services combining technical excellence with strategic SEO 
-              and WordPress mastery. We create fast, secure, and search-optimized digital solutions.
-            </p>
-
-            <div className="grid grid-cols-2 gap-4">
-              {['WordPress Development', 'On-Page SEO', 'Custom Coding', 'Speed Optimization', 'E-Commerce', 'Security'].map((item) => (
-                <div key={item} className="flex items-center gap-2 p-3 bg-white/5 rounded-xl hover:bg-purple-500/10 transition-colors duration-300">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full" />
-                  <span className="text-sm text-gray-300">{item}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                { 
+                  title: 'WordPress Mastery', 
+                  icon: '🚀',
+                  desc: 'Custom themes & plugins development'
+                },
+                { 
+                  title: 'SEO Optimization', 
+                  icon: '🔍',
+                  desc: 'Data-driven search strategies'
+                },
+                { 
+                  title: 'Web Development', 
+                  icon: '💻',
+                  desc: 'Modern responsive websites'
+                },
+                { 
+                  title: 'E-Commerce', 
+                  icon: '🛒',
+                  desc: 'Conversion-focused stores'
+                }
+              ].map((service, index) => (
+                <div 
+                  key={service.title}
+                  className="p-6 rounded-xl backdrop-blur-lg bg-white/5 border border-white/10 hover:border-purple-400/30 transition-all duration-300 group"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="text-3xl">{service.icon}</span>
+                    <div>
+                      <h3 className="text-xl font-semibold text-white mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm">
+                        {service.desc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Scroll Progress */}
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-48 h-1.5 bg-white/10 rounded-full overflow-hidden">
+        {/* Progress Bridge */}
+        <div className="mt-16 w-full h-1 bg-white/10 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-gradient-to-r from-purple-400 to-blue-500 transition-all duration-300"
-            style={{ width: `${scrollProgress}%` }}
+            className="h-full bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-1000"
+            style={{ width: `${(activeIndex + 1) * 25}%` }}
           />
         </div>
       </div>
@@ -91,4 +122,4 @@ const WebDevComponent = () => {
   );
 };
 
-export default WebDevComponent;
+export default FeatureBridge;
