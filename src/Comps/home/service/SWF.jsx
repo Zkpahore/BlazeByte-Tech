@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCode, FaFileAlt, FaSearch, FaWordpress } from 'react-icons/fa';
+import { FaCode, FaChartLine, FaSearch, FaWordpress } from 'react-icons/fa';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const services = [
@@ -7,29 +7,29 @@ const services = [
   {
     id: 1,
     title: "Web Development",
-    description: "We can create responsive code for various platforms, allowing you to stay competitive.",
-    hiddenContent: "Our web development process includes utilizing modern frameworks like React and Node.js for scalability.",
+    description: "Custom website development with modern technologies for optimal performance.",
+    hiddenContent: "We build responsive websites using React, Node.js, and cutting-edge frameworks.",
     icon: <FaCode className="text-purple-700 text-4xl mb-2" />,
   },
   {
     id: 2,
-    title: "Brochure Design",
-    description: "Our expert brochure designers create professional and impactful brochures tailored to your brand.",
-    hiddenContent: "We ensure the brochure aligns with your brand identity and marketing objectives.",
-    icon: <FaFileAlt className="text-purple-700 text-4xl mb-2" />,
+    title: "Data Analytics",
+    description: "Transform raw data into actionable insights with advanced analytics solutions.",
+    hiddenContent: "Our analytics services include predictive modeling and business intelligence dashboards.",
+    icon: <FaChartLine className="text-purple-700 text-4xl mb-2" />,
   },
   {
     id: 3,
-    title: "Banner Design",
-    description: "Get professionally designed banners that are creative, informative, and eye-catching.",
-    hiddenContent: "We design banners that enhance brand visibility and audience engagement.",
+    title: "Search Engine Optimization",
+    description: "Boost your search rankings with comprehensive SEO strategies.",
+    hiddenContent: "We optimize technical SEO, content quality, and build authoritative backlinks.",
     icon: <FaSearch className="text-purple-700 text-4xl mb-2" />,
   },
   {
     id: 4,
-    title: "Logo Design",
-    description: "A logo is essential for any brand. We offer logo designs that reflect your brand’s essence.",
-    hiddenContent: "Our logo designs are crafted to be timeless and visually aligned with your mission.",
+    title: "WordPress",
+    description: "Professional WordPress development and customization services.",
+    hiddenContent: "We offer theme development, plugin customization, and security optimization.",
     icon: <FaWordpress className="text-purple-700 text-4xl mb-2" />,
   },
 ];

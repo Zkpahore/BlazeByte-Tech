@@ -6,135 +6,169 @@ const projects = [
     id: 1,
     title: "E-commerce Platform",
     description: "Developed a fully responsive e-commerce platform with custom features, enhancing user experience and boosting sales.",
-    image: "Movies.png", // Replace with actual image paths
+    image: "Movies.png",
+    tech: ['React', 'Node.js', 'MongoDB'],
+    category: 'Web Development'
   },
   {
     id: 2,
-    title: "SEO Optimization for XYZ Corp",
-    description: "Implemented comprehensive SEO strategies that led to a 200% increase in organic traffic, significantly improving online visibility.",
+    title: "SEO Optimization Strategy",
+    description: "Implemented comprehensive SEO strategies that led to a 200% increase in organic traffic.",
     image: "solar.png",
+    tech: ['SEO Audit', 'Technical SEO', 'Content Strategy'],
+    category: 'SEO Services'
   },
   {
     id: 3,
-    title: "Marketing Campaign for ABC Ltd.",
-    description: "Executed a data-driven digital marketing campaign that resulted in a 50% increase in sales, showcasing our expertise in driving results.",
+    title: "WordPress CMS Solution",
+    description: "Custom WordPress theme development with advanced plugin integration.",
     image: "solar.png",
+    tech: ['WordPress', 'PHP', 'Elementor'],
+    category: 'CMS Development'
   },
 ];
 
 const Portfolio = () => {
   return (
-    <div className="container mx-auto py-28 px-4">
-      {/* Portfolio Header Section */}
-      <h2 className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500 mb-6">
-        Our Portfolio
-      </h2>
-      <p className="text-center text-lg text-gray-700 mb-12">
-        Explore our past projects to see how we've empowered businesses to succeed through innovative solutions and strategic execution.
-      </p>
+    <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Floating Background Elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute w-96 h-96 bg-gradient-to-r from-cyan-400/30 to-blue-400/30 rounded-full blur-3xl -top-20 -left-20 animate-float" />
+        <div className="absolute w-96 h-96 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full blur-3xl -bottom-20 -right-20 animate-float-delayed" />
+      </div>
 
-      {/* Project Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <div key={project.id} className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
-            <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform transform hover:scale-110" />
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
-              <p className="mt-3 text-white">{project.description}</p>
-              <Link to={`/case-study/${project.id}`} className="mt-4 inline-block bg-yellow-400 text-black py-2 px-4 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200">
-                View Case Study
-              </Link>
+      <div className="container mx-auto px-4 py-28 relative z-10">
+        {/* Portfolio Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            Our Digital Creations
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore our portfolio of successful web development, SEO, and WordPress projects
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {projects.map((project) => (
+            <div 
+              key={project.id}
+              className="group relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+                <span className="absolute top-4 right-4 px-4 py-1 bg-white/90 text-sm rounded-full">
+                  {project.category}
+                </span>
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, index) => (
+                    <span 
+                      key={index}
+                      className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <Link 
+                  to={`/case-study/${project.id}`}
+                  className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
+                >
+                  View Case Study
+                  <span className="text-xl">→</span>
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Testimonials Section */}
-      <div className="mt-20">
-        <h3 className="text-3xl font-bold text-center text-purple-600 mb-6">What Our Clients Say</h3>
-        <div className="flex flex-wrap justify-center gap-8">
-          <div className="bg-gradient-to-r from-green-500 to-teal-500 rounded-lg shadow-lg p-8 w-80">
-            <p className="text-lg text-white italic">"BlazeByte Tech transformed our online store. We saw a significant increase in sales and user engagement."</p>
-            <h4 className="mt-4 font-semibold text-white">John Doe, CEO of XYZ Corp</h4>
+        {/* Technologies Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">Our Tech Stack</h3>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Leveraging cutting-edge technologies for optimal performance
+            </p>
           </div>
-          <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg p-8 w-80">
-            <p className="text-lg text-white italic">"Their SEO strategy increased our traffic by 200%. We are now ranking on the first page of Google!"</p>
-            <h4 className="mt-4 font-semibold text-white">Jane Smith, Marketing Head at ABC Ltd.</h4>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['WordPress', 'React', 'Node.js', 'MongoDB', 'SEO Tools', 'GraphQL', 'Tailwind CSS', 'AWS'].map((tech, index) => (
+              <div 
+                key={index}
+                className="p-6 rounded-xl bg-white border border-gray-200 hover:border-blue-300 transition-all duration-300 text-center"
+              >
+                <div className="text-3xl mb-4">
+                  {index % 2 === 0 ? '🚀' : '💻'}
+                </div>
+                <h4 className="text-lg font-semibold text-gray-800">{tech}</h4>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Technologies Used Section */}
-      <div className="mt-20">
-        <h3 className="text-3xl font-bold text-center text-teal-500 mb-6">Technologies We Work With</h3>
-        <div className="flex flex-wrap justify-center gap-10">
-          <div className="bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg shadow-md p-6 text-center w-48">
-            <h4 className="text-xl font-semibold text-white">React.js</h4>
+        {/* Process Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">Our Development Process</h3>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              A structured approach to delivering exceptional results
+            </p>
           </div>
-          <div className="bg-gradient-to-r from-green-400 to-teal-400 rounded-lg shadow-md p-6 text-center w-48">
-            <h4 className="text-xl font-semibold text-white">Node.js</h4>
-          </div>
-          <div className="bg-gradient-to-r from-red-400 to-yellow-400 rounded-lg shadow-md p-6 text-center w-48">
-            <h4 className="text-xl font-semibold text-white">Tailwind CSS</h4>
-          </div>
-          <div className="bg-gradient-to-r from-pink-400 to-purple-400 rounded-lg shadow-md p-6 text-center w-48">
-            <h4 className="text-xl font-semibold text-white">MongoDB</h4>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { step: '01', title: 'Discovery', desc: 'Requirement analysis & planning' },
+              { step: '02', title: 'Design', desc: 'UI/UX & architectural design' },
+              { step: '03', title: 'Development', desc: 'Agile implementation phase' },
+              { step: '04', title: 'Delivery', desc: 'Deployment & optimization' }
+            ].map((step, index) => (
+              <div 
+                key={index}
+                className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 border border-gray-200 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  {step.step}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mt-4 mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Our Process Section */}
-      <div className="mt-20">
-        <h3 className="text-3xl font-bold text-center text-yellow-500 mb-6">Our Process</h3>
-        <div className="flex flex-wrap justify-center gap-10">
-          <div className="bg-gradient-to-r from-red-500 to-yellow-500 rounded-lg shadow-md p-8 w-64 text-center">
-            <h4 className="text-2xl font-semibold text-white">1. Discover</h4>
-            <p className="mt-3 text-white">We begin by understanding your business, goals, and target audience to tailor the right solution.</p>
+        {/* CTA Section */}
+        <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 shadow-2xl relative overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute w-96 h-96 bg-gradient-to-r from-cyan-400/30 to-blue-400/30 rounded-full blur-3xl -top-20 -left-20 animate-float" />
+            <div className="absolute w-96 h-96 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full blur-3xl -bottom-20 -right-20 animate-float-delayed" />
           </div>
-          <div className="bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg shadow-md p-8 w-64 text-center">
-            <h4 className="text-2xl font-semibold text-white">2. Design</h4>
-            <p className="mt-3 text-white">We create innovative and user-friendly designs to ensure a seamless user experience.</p>
-          </div>
-          <div className="bg-gradient-to-r from-teal-500 to-green-500 rounded-lg shadow-md p-8 w-64 text-center">
-            <h4 className="text-2xl font-semibold text-white">3. Develop</h4>
-            <p className="mt-3 text-white">We develop high-quality, scalable web applications using the latest technologies and best practices.</p>
-          </div>
-          <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg shadow-md p-8 w-64 text-center">
-            <h4 className="text-2xl font-semibold text-white">4. Deliver</h4>
-            <p className="mt-3 text-white">We ensure the final product meets your business objectives and is ready for launch.</p>
+          <div className="relative z-10 space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Start Your Digital Journey</h2>
+            <p className="text-white/90 text-xl max-w-xl mx-auto">
+              Let's collaborate to create something extraordinary
+            </p>
+            <Link to="/contact">
+              <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
+                Schedule Consultation
+              </button>
+            </Link>
           </div>
         </div>
-      </div>
-
-      {/* Skills Section */}
-      <div className="mt-20">
-        <h3 className="text-3xl font-bold text-center text-red-500 mb-6">Our Core Skills</h3>
-        <div className="flex flex-wrap justify-center gap-12">
-          <div className="bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg shadow-md p-6 w-48 text-center">
-            <h4 className="text-xl font-semibold text-white">Web Development</h4>
-            <p className="text-white">Expert in building responsive, scalable web applications.</p>
-          </div>
-          <div className="bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg shadow-md p-6 w-48 text-center">
-            <h4 className="text-xl font-semibold text-white">SEO Optimization</h4>
-            <p className="text-white">Improve site visibility and increase organic traffic with SEO best practices.</p>
-          </div>
-          <div className="bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg shadow-md p-6 w-48 text-center">
-            <h4 className="text-xl font-semibold text-white">E-commerce Solutions</h4>
-            <p className="text-white">Customized e-commerce platforms to help businesses increase sales and customer satisfaction.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Call to Action Section */}
-      <div className="mt-20 text-center bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-12">
-        <h3 className="text-4xl font-bold mb-4">Ready to Start Your Project?</h3>
-        <p className="text-lg mb-6">Let's turn your ideas into reality with a powerful digital solution.</p>
-        <Link to="/contact" className="bg-yellow-500 text-black py-2 px-6 rounded-md hover:bg-yellow-600 transition-all duration-200">
-          Contact Us Today
-        </Link>
       </div>
     </div>
   );
 };
 
-export default Portfolio
+export default Portfolio;
