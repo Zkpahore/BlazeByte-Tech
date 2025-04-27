@@ -28,7 +28,7 @@ const Services = () => {
       title: 'E-commerce Solutions',
       desc: 'Scalable online store development & optimization',
       gradient: 'from-pink-600 via-rose-600 to-pink-700',
-      link: '/ecommerce',
+      link: '/E-commerce-Solutions',
       icon: '🛒'
     }
   ];

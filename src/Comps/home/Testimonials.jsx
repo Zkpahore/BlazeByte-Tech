@@ -74,7 +74,7 @@ const Testimonials = () => {
             Join hundreds of satisfied clients who've transformed their digital presence with us
           </p>
           <Link 
-            to="contact"
+            to="/contact"
             className="inline-block bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             Start Your Journey Now

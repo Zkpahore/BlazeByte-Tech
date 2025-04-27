@@ -14,9 +14,9 @@ const Footer = () => (
         {/* Social links grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
           {[
-            { icon: <FaInstagram />, label: 'Instagram', href: 'https://instagram.com' },
-            { icon: <FaFacebookF />, label: 'Facebook', href: 'https://facebook.com' },
-            { icon: <FaTwitter />, label: 'Twitter', href: 'https://twitter.com' },
+            { icon: <FaInstagram />, label: 'Instagram', href: 'https://instagram.com/blazebyte_tech' },
+            { icon: <FaFacebookF />, label: 'Facebook', href: 'https://web.facebook.com/profile.php?id=100088421584668' },
+            { icon: <FaTwitter />, label: 'Twitter', href: 'https://twitter.com/i/flow/login?redirect_after_login=%2FMuhamma22385581' },
             { 
               icon: <FaEnvelope />, 
               label: 'Email Us', 

@@ -39,7 +39,7 @@ const MonitorSlider = ({ images }) => {
     if (!isHovered) {
       const interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % images.length);
-        setProgress(0); // Reset progress on slide change
+        setProgress(0);
       }, 5000);
 
       const progressInterval = setInterval(() => {
@@ -90,7 +90,8 @@ const MonitorSlider = ({ images }) => {
 };
 
 const WebDesignServices = () => {
-  const images = ['/Movies.png', '/solar.png'];
+  const imagesFirst = ['/Movies.png', '/solar.png'];
+  const imagesSecond = ['/ecommerce.webp', '/ecome.webp'];
 
   return (
     <div className="py-20 px-6 md:px-12 lg:px-24 border-b-2">
@@ -106,20 +107,20 @@ const WebDesignServices = () => {
               robust functionality. Our full-stack approach ensures your website not only captivates 
               visitors but also drives measurable business results.
             </p>
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl animate-fade-in-up delay-200">
+            {/* <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl animate-fade-in-up delay-200">
               Start Your Transformation
-            </button>
+            </button> */}
           </div>
           
           <div className="w-full md:w-1/2 animate-float">
-            <MonitorSlider images={images} />
+            <MonitorSlider images={imagesSecond} />
           </div>
         </div>
 
         {/* Section 2 */}
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
           <div className="w-full md:w-1/2 animate-float">
-            <MonitorSlider images={images} />
+            <MonitorSlider images={imagesFirst} />
           </div>
 
           <div className="w-full md:w-1/2 space-y-8">
@@ -131,9 +132,9 @@ const WebDesignServices = () => {
               platforms ready for global scale. We implement CI/CD pipelines, cloud-native architectures, 
               and real-time analytics to future-proof your digital assets.
             </p>
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl animate-fade-in-up delay-200">
+            {/* <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl animate-fade-in-up delay-200">
               Explore Our Solutions
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

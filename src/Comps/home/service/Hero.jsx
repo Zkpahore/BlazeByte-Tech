@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const HeroSection = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef(null);
@@ -49,12 +49,16 @@ const HeroSection = () => {
             </p>
 
             <div className="flex justify-center lg:justify-start space-x-4">
-              <button className="px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
+              <Link  to="/contact">
+              <button className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
                 Start Now
               </button>
-              <button className="px-8 py-3 border-2 border-white/20 hover:border-cyan-400 text-white rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10">
+              </Link>
+              <Link  to="/services">
+              <button className="px-4 py-2 border-2 border-white/20 hover:border-cyan-400 text-white rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10">
                 Explore Solutions
               </button>
+              </Link>
             </div>
           </div>
 
